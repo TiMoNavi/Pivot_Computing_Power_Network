@@ -39,7 +39,7 @@ const MyProject = ({ count = 2}) => {
     const result = await getProjects_portal(count)
     if (result) {
       if(result.code==0){
-        setProjects(result.data.items)
+        setProjects(result.data?.items || [])
       }
       else{
         message.warn(result.msg)

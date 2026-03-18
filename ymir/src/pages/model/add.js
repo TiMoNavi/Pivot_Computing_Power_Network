@@ -111,7 +111,7 @@ const Add = () => {
     const result = await getpublicModels()
     if (result) {
       if(result.code == 0){
-        const items = result.data.items
+        const items = result.data?.items || []
         setpublicModels(items)
       }
       else{

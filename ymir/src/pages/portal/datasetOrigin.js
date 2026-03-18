@@ -18,11 +18,11 @@ function Sets({count = 1}) {
 
   useEffect(async () => {
     const result = await getpublicdataset()
-    if (result) {
+    if (result && result.data) {
       let r = 0,
         list = []
-      const items = result.data.items
-      const total = result.data.total
+      const items = result.data.items || []
+      const total = result.data.total || 0
       while (r < total) {
         list.push(items.slice(r, r + count))
         r += count

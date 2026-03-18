@@ -133,7 +133,7 @@ function Add({ id, from, stepKey, back, ...props }) {
     const result = res.data
     if(result){
       if(result.code == 0){
-        const items = result.data.items
+        const items = result.data?.items || []
         setSets(items)
       }
       else{
